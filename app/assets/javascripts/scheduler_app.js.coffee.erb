@@ -1,0 +1,39 @@
+angular.module('Scheduler', ['ngRoute'])
+.controller('MainController', ["$scope", "EmployeeFactory", ($scope, $es)->
+  $scope.employees = $es.all()
+  @
+])
+.directive('scEmployeeList', ()->
+  return {
+    scope : {
+      employee : '=scEmployeeList'
+    }
+    link : (scope, element, attr) ->
+      messagesLink = $('.msg', element)
+      calendarLink = $('.cal', element)
+
+      if !scope.employee.hasMessages
+        messagesLink.addClass('disabled')
+      else messagesLink.tooltip({
+        title : scope.employee.messageCount + " Messages"
+      })
+      if !scope.employee.hasRequests
+        calendarLink.addClass('disabled')
+      else calendarLink.tooltip({
+        title : scope.employee.requestCount + " Pending Requests"
+      })
+
+    template : ['<div class="employee list-entry">',
+                '<figure>',
+                  '<%= image_tag(asset_path("placeholder.jpg"), :width => 50) %>',
+                  '<figcaption>',
+                    '<strong>{{employee.name}}</strong>',
+                    '<div class="actions">',
+                      '<a class="msg" ng-click="openMessages(employee)"><span class="glyphicon glyphicon-envelope"></span></a>',
+                      '<a class="cal" ng-click="openRequests(employee)"><span class="glyphicon glyphicon-calendar"></span></a>',
+                    '</div>',
+                  '</figcaption>',
+                '</figure>',
+              '</div>'].join('')
+  }
+)

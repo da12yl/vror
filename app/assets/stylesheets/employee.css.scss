@@ -1,0 +1,13 @@
+.employee-list {
+  li {
+    -webkit-transition:background .25s ease-in-out;
+    margin:5px 0;
+    cursor:pointer;
+    &:hover {
+      background:#ddd;
+    }
+    img {
+      margin-right:5px; 
+    }
+  }
+}
