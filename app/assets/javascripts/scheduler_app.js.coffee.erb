@@ -4,7 +4,7 @@ angular.module('Scheduler', ['ngRoute'])
   @
 ])
 .directive('scEmployeeList', ()->
-  return {
+  {
     scope : {
       employee : '=scEmployeeList'
     }
@@ -12,15 +12,16 @@ angular.module('Scheduler', ['ngRoute'])
       messagesLink = $('.msg', element)
       calendarLink = $('.cal', element)
 
-      if !scope.employee.hasMessages
+
+      if !scope.employee.messages
         messagesLink.addClass('disabled')
       else messagesLink.tooltip({
-        title : scope.employee.messageCount + " Messages"
+        title : scope.employee.messages.count + " Messages"
       })
-      if !scope.employee.hasRequests
+      if !scope.employee.requests
         calendarLink.addClass('disabled')
       else calendarLink.tooltip({
-        title : scope.employee.requestCount + " Pending Requests"
+        title : scope.employee.requests.count + " Pending Requests"
       })
 
     template : ['<div class="employee list-entry">',
