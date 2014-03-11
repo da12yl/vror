@@ -37,3 +37,19 @@ angular.module('Scheduler', ['ngRoute'])
               '</div>'].join('')
   }
 )
+.directive('scFullCalendar', ()->
+  {
+    restrict : 'EA',
+    link : (scope, element, attr) ->
+      element.css({
+        width : '70%',
+        margin : 'auto'
+      })
+      $(element).fullCalendar({
+        header : {
+          center : "title",
+          left : "prev,next today"
+        }
+      })
+  }
+)
