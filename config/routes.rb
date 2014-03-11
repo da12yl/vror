@@ -1,6 +1,10 @@
 Scheduler::Application.routes.draw do
-  get "home/index"
   root "home#index"
+
+  # Angular View Controller
+  resources :client_views, only: [:show]
+  
+  resources :employees
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
