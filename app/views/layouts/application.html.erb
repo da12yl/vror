@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <%= stylesheet_link_tag 'application' %>
   </head>
-<body data-ng-app="Scheduler">
+<body>
 
   <!-- <main> -->
-  <div class="main" data-ng-controller="MainController">
+  <div class="main">
     <%= render 'static_employee_sidebar' %>
 
     <!-- Main Content Area -->
@@ -17,7 +17,9 @@
       <%= render 'page_navigation' %>
 
       <!-- Main Content Area, yield or ng-view -->
-      <div class="content ng-view"></div>
+      <div class="content">
+        <%= yield %>
+      </div>
       <!-- End Main Content Area -->
 
     </section>
@@ -29,10 +31,6 @@
     </footer>
   </div>
   <!-- </main> -->
-  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-route.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <%= javascript_include_tag 'application' %>
 </body>
 </html>
