@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require vendor/bootstrap.min
-//= require vendor/angular.min
+//= require vendor/angular
 //= require ./angular/scheduler
 //= require_tree ./angular
 //= require_tree .

@@ -3,7 +3,7 @@ Scheduler::Application.routes.draw do
 
   # Routes to current page
   # resources :client_views, only: [:show]
-  resources :employees, only: [:create, :new, :show, :update, :edit]
+  resources :employees
   resources :angular_views, only: [:show]
 
 

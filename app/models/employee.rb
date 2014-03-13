@@ -12,4 +12,9 @@
 #
 
 class Employee < ActiveRecord::Base
+
+  private 
+  def employee_params
+    params.require(:employee).permit(:name, :image, :phone, :hiredate)
+  end
 end
