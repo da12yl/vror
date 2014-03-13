@@ -10,25 +10,14 @@
 
   <!-- <main> -->
   <div class="main">
-    <%= render 'static_employee_sidebar' %>
-
+    <%= render 'page_navigation' %>
     <!-- Main Content Area -->
     <section class="content-stage">
-      <%= render 'page_navigation' %>
-
-      <!-- Main Content Area, yield or ng-view -->
       <div class="content">
+        <%= render 'static_employee_sidebar'%>
         <%= yield %>
       </div>
-      <!-- End Main Content Area -->
-
     </section>
-
-    <footer class="toolbar">
-      <div class="content-wrapper">
-        <p>Footer content</p>
-      </div>
-    </footer>
   </div>
   <!-- </main> -->
   <%= javascript_include_tag 'application' %>
