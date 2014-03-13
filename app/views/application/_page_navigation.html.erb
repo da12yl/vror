@@ -27,8 +27,12 @@
     </ul>
     <div class="nav-right">
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Logout</a></li>
         <li class="nav summary">
-          <header>Hello, Daryl</header>
+          <div>
+            <a sc-notification="envelope" type="message" count="1"></a>
+            <a sc-notification="calendar" type="request" count="3"></a>
+          </div>
         </li>
         <li><%= image_tag asset_path "placeholder.jpg" %></li>
       </ul>

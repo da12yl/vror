@@ -25,14 +25,29 @@
   }
 }
 .nav.summary {
-  margin-right:7em;
+  margin-right:5em;
   header {
-    font-weight:bold
+    font-weight:bold;
   }
-  .notification {
-    font-size:.9em;
-    span {
-      display:block;
+  .sc_notification {
+    position:relative;
+    top:.45em;
+    a {
+      display:inline-block;
+    }
+    span.glyphicon {
+      font-size:1.9em;
+      margin:.25em .5em;
+    }
+    span.badge {
+      position:absolute;
+      right:8px;top:-1.5em;
+      box-shadow:0px 3px 4px rgba(0, 0, 0, .2);
+      background:#c00;
+    }
+    .empty {
+      color:#aaa;
+      span {margin:.25em 0}
     }
   }
 }
