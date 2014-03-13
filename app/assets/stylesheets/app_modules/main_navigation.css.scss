@@ -1,0 +1,38 @@
+.main > header {
+  width:100%;
+  // Main Navigation
+  .navbar {
+    position:fixed;
+    z-index:500;
+    top:0;left:0;right:0;
+    .navbar-brand {
+      font-size:1.75em;
+      font-family:serif;
+      color:#c00;
+      border-right:1px solid #ccc;
+    }
+    .nav-right {
+      margin-right:2.5em;
+      img {
+        height:70px;
+        position:fixed;
+        right:1em;top:5px;
+        border:1px solid #EEE;
+        box-shadow:2px 5px 5px #ccc;
+        padding:2px;
+      }
+    }
+  }
+}
+.nav.summary {
+  margin-right:7em;
+  header {
+    font-weight:bold
+  }
+  .notification {
+    font-size:.9em;
+    span {
+      display:block;
+    }
+  }
+}

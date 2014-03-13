@@ -1,0 +1,44 @@
+<aside>
+
+  <div class="aside-wrapper">
+    <!-- Sidebar Action areas -->
+    <div class="aside-content">
+      <div class="box-flex">
+        <div>
+          <!-- Employee List -->
+          <section class="scrollbox">
+            <div class="scrollbox-inner">
+            <!-- Presentational Fade Boxes -->
+            <% Employee.all.each do |emp| %>
+              <div class="employee list-entry">
+                <figure>
+                  <%= image_tag(asset_path(emp.image), :width => 50) %>
+                  <figcaption>
+                    <strong><%= emp.name %></strong>
+                    <div class="actions">
+                      <%# if current_user.isAdmin? #%>
+                      <a class="msg"><span class="glyphicon glyphicon-envelope"></span></a>
+                      <a class="cal"><span class="glyphicon glyphicon-calendar"></span></a>
+                      <%# else #%>
+                        <!-- Non admin actions like work status, send message, etc -->
+                      <%# end #%>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+            <% end %>
+            </div>
+          </section>
+
+        </div>
+      </div>
+      <!-- /.box -->
+      <div class="box btn-actions">
+          <div>
+            <button type="button" class="btn btn-md btn-default">Send Group Email</button>
+            <button type="button" class="btn btn-md btn-warning">Clear All Notifications</button>
+          </div>
+      </div>   
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,29 @@
+.employee {
+  &.list-entry {
+    overflow:hidden;
+    position:relative;;
+    figure {      
+      display:table;
+      img, figcaption {
+        display:table-cell;
+      }
+      img { padding-right:5px;}
+      figcaption {
+        vertical-align:top;
+        padding:.5em 0;
+      }
+      .actions {
+        a {
+          text-align:center;
+          font-size:1.25em;
+          margin:.5em .15em 0;
+          display:inline-block;
+          color:#aaa;
+          &:hover {
+            color:lighten(#aaa, 10%);
+          }
+        }
+      }
+    }
+  }
+}
