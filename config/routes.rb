@@ -4,7 +4,7 @@ Scheduler::Application.routes.draw do
   # Routes to current page
   # resources :client_views, only: [:show]
   #resources :employees
-  scope "/admin" do 
-    resources :employees
-  end
+
+  # Admin resource
+  resources :employees
 end
