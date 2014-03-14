@@ -15,12 +15,12 @@
       </ul>
       </li>
       <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown">Schedules <strong class="caret"></strong></a>
-      <ul class="dropdown-menu">
-        <li><a>Create New</a></li>
-        <li><a>Edit Current</a></li>
-        <li><a>All Schedules</a></li>
-      </ul>
+        <a class="dropdown-toggle" data-toggle="dropdown">Schedules <strong class="caret"></strong></a>
+        <ul class="dropdown-menu">
+          <li><a>Create New</a></li>
+          <li><a>Edit Current</a></li>
+          <li><a>All Schedules</a></li>
+        </ul>
       </li>
       <li><a>Messages</li></a>
       <li><a>Requests</li></a>
@@ -31,8 +31,12 @@
         <li><a href="#">Logout</a></li>
         <li class="nav summary">
           <div>
+            <%= render 'navbar_notification', :type => "envelope", :count => 2 %>
+            <%= render 'navbar_notification', :type => "calendar", :count => 5 %>
+            <!--
             <a sc-notification="envelope" type="message" count="1"></a>
             <a sc-notification="calendar" type="request" count="3"></a>
+            -->
           </div>
         </li>
         <li><%= image_tag asset_path "placeholder.jpg" %></li>
