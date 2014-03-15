@@ -1,3 +1,15 @@
+#gravatar {
+  div.tooltip {
+    left:-180px !important;
+    top:60px !important;
+  }
+  .tooltip-arrow {
+    border-left-color:green
+  }
+  .tooltip-inner {
+    background:green
+  }
+}
 .main > header {
   width:100%;
   // Main Navigation

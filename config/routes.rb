@@ -1,11 +1,8 @@
 Scheduler::Application.routes.draw do
   root :to => "home#index"
-  devise_for :users
-
-  # Routes to current page
-  # resources :client_views, only: [:show]
-  #resources :employees
-
-  # Admin resource
-  resources :employees
+  devise_for :users, 
+      :path => '', :path_names => {
+        :sign_in => 'login', 
+        :sign_out => 'logout',
+        :sign_up => "add_employee"}
 end

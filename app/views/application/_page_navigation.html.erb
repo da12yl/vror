@@ -6,11 +6,11 @@
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown">Employees <strong class="caret"></strong></a>
       <ul class="dropdown-menu">
-        <li><a href="/employees">All Employees</a></li>
+        <li><a href="#">All Employees</a></li>
         <li><a>Schedule Templates</a></li>
         <li><a>Edit Details</a></li>
         <li class="divider"></li>
-        <li><%= link_to "New Hire", new_employee_path %></li>
+        <li><a href="#">Add New Employee</a></li>
         <li><a>Donald Trump</a></li>
       </ul>
       </li>
@@ -46,7 +46,7 @@
             -->
           </div>
         </li>
-        <li><%= image_tag asset_path "placeholder.jpg" %></li>
+        <li id="gravatar"><%= image_tag (asset_path "placeholder.jpg"), :data =>{:toggle => "tooltip"} %></li>
       </ul>
     </div>
   </div>

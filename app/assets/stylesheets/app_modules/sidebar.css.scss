@@ -1,28 +1,35 @@
 .employee {
+  cursor:pointer;
+  -webkit-transition:background .2s ease-in-out;
+  width:100%;
+  padding:5px;
+  &:hover {
+    background:#fff;
+  }
   &.list-entry {
-    overflow:hidden;
-    position:relative;;
-    figure {      
-      display:table;
-      img, figcaption {
-        display:table-cell;
-      }
-      img { padding-right:5px;}
-      figcaption {
-        vertical-align:top;
-        padding:.5em 0;
-      }
-      .actions {
-        a {
-          text-align:center;
-          font-size:1.25em;
-          margin:.5em .15em 0;
-          display:inline-block;
-          color:#aaa;
-          &:hover {
-            color:lighten(#aaa, 10%);
-          }
-        }
+    display:table;
+    table-layout:fixed;
+    position:relative;
+    figure, figure + div {
+      display:table-cell;
+    }
+    figure {
+      vertical-align:middle;
+      width:55px;
+    }
+    h6 {
+      padding:0;margin:2px 0;
+      font-size:1em;
+      word-wrap:nowrap;
+    }
+    figure + div {
+      vertical-align:top;
+      padding-left:5px;
+      a {
+        text-align:center;
+        margin:.5em .25em;
+        font-size:1.25em;
+        display:inline-block;
       }
     }
   }

@@ -1,10 +1,18 @@
 class ApplicationController < ActionController::Base
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
+  layout :layout
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   #protect_from_forgery
+  # Devise strong parameter configuration
   protected
-
+  def layout
+    if devise_controller?
+      "devise"
+    else
+      "application"
+    end
+  end
   def configure_devise_permitted_parameters
     registration_params = [:name, :hire_date, :phone, :email, :password, :password_confirmation]
 

@@ -6,24 +6,16 @@
   <%= stylesheet_link_tag 'application' %>
   </head>
 <body>
-
-  <!-- <main> -->
   <div class="main">
     <%= render 'page_navigation' %>
     <!-- Main Content Area -->
     <section class="content-stage">
       <div class="content">
-
-        <!-- Devise Flashes -->
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-
         <%= render 'static_employee_sidebar'%>
         <%= yield %>
       </div>
     </section>
   </div>
-  <!-- </main> -->
   <%= javascript_include_tag 'application' %>
 </body>
-</html>
+</html> 

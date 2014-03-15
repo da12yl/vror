@@ -9,24 +9,24 @@
           <section class="scrollbox">
             <div class="scrollbox-inner">
             <!-- Presentational Fade Boxes -->
+
             <% User.all.each do |emp| %>
               <div class="employee list-entry">
                 <figure>
-                  <%#= image_tag(asset_path(emp.image), :width => 50) #%>
-                  <figcaption>
-                    <strong><%= emp.name %></strong>
-                    <div class="actions">
-                      <%# if current_user.isAdmin? #%>
-                      <a class="msg"><span class="glyphicon glyphicon-envelope"></span></a>
-                      <a class="cal"><span class="glyphicon glyphicon-calendar"></span></a>
-                      <%# else #%>
-                        <!-- Non admin actions like work status, send message, etc -->
-                      <%# end #%>
-                    </div>
-                  </figcaption>
+                  <%= image_tag(asset_path("placeholder.jpg"), :width => 50) %>
                 </figure>
+                <div>
+                  <h6><%= emp.name %></h6>
+                  <footer>
+                    <div id="admin">
+                      <a href="#"><span class="glyphicon glyphicon-envelope"></span></a>
+                      <a href="#"><span class="glyphicon glyphicon-calendar"></span></a>
+                    </div>
+                  </footer>
+                </div>
               </div>
             <% end %>
+
             </div>
           </section>
 
