@@ -9,10 +9,10 @@
           <section class="scrollbox">
             <div class="scrollbox-inner">
             <!-- Presentational Fade Boxes -->
-            <% Employee.all.each do |emp| %>
+            <% User.all.each do |emp| %>
               <div class="employee list-entry">
                 <figure>
-                  <%= image_tag(asset_path(emp.image), :width => 50) %>
+                  <%#= image_tag(asset_path(emp.image), :width => 50) #%>
                   <figcaption>
                     <strong><%= emp.name %></strong>
                     <div class="actions">
