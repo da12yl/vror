@@ -13,7 +13,7 @@
             <% User.all.each do |emp| %>
               <div class="employee list-entry">
                 <figure>
-                  <%= image_tag(asset_path("placeholder.jpg"), :width => 50) %>
+                  <%= image_tag(gravatar_url(emp), :width => 55) %>
                 </figure>
                 <div>
                   <h6><%= emp.name %></h6>

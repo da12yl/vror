@@ -1,0 +1,49 @@
+<h3>Add New User</h3>
+
+<div class="reg-form singup">
+  <section class="form-group">
+    <%= devise_error_messages! %>
+    <%= form_for :user, :url => admin_users_new_url do |f| %>
+      <div class="input-group">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, :placeholder => "i.e. John Smith", :autofocus => true, class: "form-control" %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label "Hire Date" %><br />
+            <%= f.date_field :hiredate, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group row">
+        <div class="col-md-8">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control", placeholder: "email@example.com" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.label :phone %>
+          <%= f.text_field :phone, class: "form-control", :maxlength => 10 %>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label "Retype Password" %><br />
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="input-group"><%= f.submit "Add Employee", :class => "btn btn-default" %></div>
+      </footer>
+    <% end %>
+  </section>
+</div>

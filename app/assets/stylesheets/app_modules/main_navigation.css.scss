@@ -1,13 +1,14 @@
 #gravatar {
+  $tooltipColor: #FFAA00;
   div.tooltip {
-    left:-180px !important;
-    top:60px !important;
+    left:-205px !important;
+    top:55px !important;
   }
   .tooltip-arrow {
-    border-left-color:green
+    border-left-color:$tooltipColor
   }
   .tooltip-inner {
-    background:green
+    background:$tooltipColor;
   }
 }
 .main > header {
@@ -25,8 +26,9 @@
     }
     .nav-right {
       margin-right:2.5em;
+
+      /* Gravatar */
       img {
-        height:70px;
         position:fixed;
         right:1em;top:5px;
         border:1px solid #EEE;

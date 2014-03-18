@@ -1,0 +1,16 @@
+<h2>Admin Dashboard</h2>
+
+<% if flash[:notice] %>
+<p class="well well-info"><%= flash[:notice] %></p>
+<% end %>
+<section class="admin">
+  <div>
+    <a href="http://localhost:3000/admin/users/new" id="add" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Add New User</a>
+    <a href="users/remove" id="remove" class="btn btn-default disabled"><span class="glyphicon glyphicon-fire"></span> Remove User</a>
+  </div>
+</section>
+<% if !@users.empty? %>
+  <%= render :template => 'users/index' %>
+<% else %>
+  <div class="well"><h5>No Users<h5> <%= link_to "Add User", new_admin_user_path %></div>
+<% end %>

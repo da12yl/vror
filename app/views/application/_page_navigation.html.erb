@@ -6,11 +6,11 @@
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown">Employees <strong class="caret"></strong></a>
       <ul class="dropdown-menu">
-        <li><a href="#">All Employees</a></li>
+        <li><%= link_to "All Employees", users_path %></li>
         <li><a>Schedule Templates</a></li>
         <li><a>Edit Details</a></li>
         <li class="divider"></li>
-        <li><a href="#">Add New Employee</a></li>
+        <li><a href="#">Add New User</a></li>
         <li><a>Donald Trump</a></li>
       </ul>
       </li>
@@ -31,11 +31,10 @@
 
         <!-- Login/logout -->
         <% if user_signed_in? %>
-          <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
         <% else %>
-          <li><%= link_to "Login", new_user_session_path, :method => :get %>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
         <% end %>
-
         <li class="nav summary">
           <div>
             <%= render 'navbar_notification', :type => "envelope", :count => 2 %>
@@ -46,7 +45,7 @@
             -->
           </div>
         </li>
-        <li id="gravatar"><%= image_tag (asset_path "placeholder.jpg"), :data =>{:toggle => "tooltip"} %></li>
+        <li id="gravatar"><%= image_tag gravatar_url(current_user), :data =>{:toggle => "tooltip"} %></li>
       </ul>
     </div>
   </div>

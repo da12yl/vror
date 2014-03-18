@@ -13,4 +13,4 @@ ready = ->
     g.tooltip('hide')
   , 5000)
 
-$(document).on('page:load ready', ready)
+#$(document).on('page:load ready', ready)
