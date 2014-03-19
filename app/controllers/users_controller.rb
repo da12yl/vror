@@ -3,6 +3,6 @@ class UsersController < ApplicationController
     @users = User.all.order(hiredate: :desc)
   end
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by name: params[:id].split('-').join(' ')
   end
 end

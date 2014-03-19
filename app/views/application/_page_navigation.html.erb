@@ -3,18 +3,19 @@
   <div class="navbar-inner">
     <a href="/" class="navbar-brand">Schedulr</a>
     <ul class="nav navbar-nav">
-      <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown">Employees <strong class="caret"></strong></a>
-      <ul class="dropdown-menu">
-        <li><%= link_to "All Employees", users_path %></li>
-        <li><a>Schedule Templates</a></li>
-        <li><a>Edit Details</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Add New User</a></li>
-        <li><a>Donald Trump</a></li>
-      </ul>
+      <% if current_user.try(:admin?) %>
+      <li class="dropdown admin">
+        <a class="dropdown-toggle" data-toggle="dropdown">Employees <strong class="caret"></strong></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "All Employees", users_path %></li>
+          <li><a>Schedule Templates</a></li>
+          <li><a>Edit Details</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Add New User</a></li>
+          <li><a>Donald Trump</a></li>
+        </ul>
       </li>
-      <li class="dropdown">
+      <li class="dropdown admin">
         <a class="dropdown-toggle" data-toggle="dropdown">Schedules <strong class="caret"></strong></a>
         <ul class="dropdown-menu">
           <li><a>Create New</a></li>
@@ -22,9 +23,12 @@
           <li><a>All Schedules</a></li>
         </ul>
       </li>
+      <li class="admin"><a>Site Activity</a></li>
+      <% else %>
+        <li><%= link_to "All Employees", users_path %></li>
+      <% end %>
       <li><a>Messages</li></a>
       <li><a>Requests</li></a>
-      <li><a>Site Activity</a></li>
     </ul>
     <div class="nav-right">
       <ul class="nav navbar-nav navbar-right">

@@ -12,3 +12,20 @@
  *= require vendor/bootstrap.min
  *= require_tree .
  */
+@import 'app_modules/main_navigation';
+
+ html, body, .main, .content-stage {
+  height:100%;
+  max-height:100%;
+}
+.main {
+  position:relative;
+  .content-stage {
+    position:absolute;
+    left:0;right:0;
+    padding-top:50px;
+    .content {
+      padding:.25em 1em
+    }
+  }
+}

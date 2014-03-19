@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
+
   layout :layout
 
+  private
   def layout
-    !devise_controller? && "application"
+    is_a?(Devise::SessionsController) ? "devise" : "application"
   end
 end
