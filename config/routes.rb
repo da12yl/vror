@@ -6,6 +6,7 @@ Scheduler::Application.routes.draw do
               # Define our own links, skip devise generated routes
               :skip => [:registrations, :sessions]
 
+  
   as :user do
     # Don't allow access to the sign_up link
     match 'users/sign_up', to: redirect('/'), via: [:get, :post]
@@ -20,7 +21,9 @@ Scheduler::Application.routes.draw do
   # Default resources
   #
   resources :users
-  resources :tips, except: [:update, :put]
+  resources :tips, only: [:index, :values]
+
+  get 'tipentries' => 'tips#values'
 
   # 
   # Admin Namespace
