@@ -23,8 +23,9 @@
           <li><a>All Schedules</a></li>
         </ul>
       </li>
-      <li><a>Requests</li></a>
-      <li><a>Messages</li></a>
+      <li><%= link_to "TipTracker", tips_path %>
+      <li><a>Requests</a></li>
+      <li><a>Messages</a></li>
       <li class="admin"><a>Site Activity</a></li>
       <% else %>
         <li><%= link_to "All Employees", users_path %></li>

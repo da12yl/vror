@@ -20,6 +20,7 @@ Scheduler::Application.routes.draw do
   # Default resources
   #
   resources :users
+  resources :tips, except: [:update, :put]
 
   # 
   # Admin Namespace

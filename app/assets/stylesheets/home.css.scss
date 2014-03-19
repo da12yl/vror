@@ -10,27 +10,16 @@
   >header {
     color:#c00
   }
-  #overview {
-    margin-top:1em;
-  }
-  .panel {
-    box-shadow:0px 5px 4px rgba(0, 0, 0, .2)
-  }
-  .panel-heading {
-    font-size:1em;
-    padding:.5em;
-    color:#333
-  }
+  #overview {margin-top:.5em;}
   .today {
     position:relative;
+    overflow:hidden;
+    padding-bottom:20px;
     > div {
       margin-left:-3em;
     }
   }  
   ul.roles {
-    $bell : #c00;
-    $door : #00c;
-    $valet : #FFBB00;
     list-style:none outside;
     padding:0;margin:0;
     position:absolute;
@@ -43,24 +32,15 @@
       text-indent:-9999px;
       overflow:hidden;
       opacity:.5;
+      &.door, &.bell, &.valet {
+        background:#c00;
+      }
       &.active {
         opacity:1
-      }
-      &.door {
-        background:desaturate($door, 100%);
-        &.active {background:$door;}
-      }
-      &.bell {
-        background:desaturate($bell, 100%);
-        &.active {background:$bell}
-      }
-      &.valet {
-        background:desaturate($valet, 100%);
-        &.active {background:$valet}
       }
     }
   }
   #highchart_place {
-    height:295px;
+    height:310px;
   }
 }

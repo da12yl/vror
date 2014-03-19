@@ -1,5 +1,5 @@
 angular.module('Scheduler')
-.directive('scPanel', ->
+.directive('scPanel', ['$http', ->
   {
     restrict : 'A',
     transclude : true,
@@ -7,13 +7,19 @@ angular.module('Scheduler')
     scope : {
       title : '@',
       buttons : '@',
-      footer : '@'
+      footer : '@',
+      size : '@'
     }, 
     link : (scope, element, attr) ->
       # Hide our footer if not requested
       if scope.footer && scope.footer is "false" or not scope.buttons
         element.find('footer').hide()
 
+      group = $('.btn-group', element)
+
+      if scope.size
+        group.addClass('btn-group-' + scope.size)
+        group.removeClass('btn-group')
       # Parse button JSON only if it's available
       if scope.buttons 
         json = scope.$eval(scope.buttons)
@@ -37,7 +43,7 @@ angular.module('Scheduler')
 
     template : """
   <div class="panel panel-default">
-    <header class="panel-heading">
+    <header class="panel-heading" ng-hide="!title">
       {{title}}
     </header>
     <section class="panel-body" data-ng-transclude></section>
@@ -48,4 +54,4 @@ angular.module('Scheduler')
     </footer>
   </div>"""
   }
-)
+])

@@ -7,7 +7,6 @@ class Admin::UsersController < Devise::RegistrationsController
   end
 
   def create
-    logger.debug params[:user]
     super do |resource|
       flash[:notice] = "Successfully added " << resource.name
     end
