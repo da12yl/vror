@@ -3,69 +3,69 @@
     <h3><%= current_user.first_name %>&apos;s Dashboard</h3>
   </header>
   <section class="schedule">
-    <div class="schedule-ctn">
-      <section class="today">
-        <header>March 10th</header>
-        <span class="date-day">11:30<sup>pm</sup></span>
-      </section>
-      <h4 class="divider">Week at a glance</h4>
-      <section class="week">
-        <div>
-          <span>10</span>
-        </div>
-        <div>
-          <span>11</span>
-        </div>
-        <div>
-          <span>12</span>
-        </div>
-        <div>
-          <span>13</span>
-        </div>  
-        <div>
-          <span>14</span>
-        </div>
-        <div>
-          <span>15</span>
-        </div>
-        <div>
-          <span>16</span>
+    <div class="schedule-ctn row">
+      <section class="col-md-8">
+        <div sc-panel title="Tip Tracker" buttons="{plus : 'Add Entry', pencil : 'Edit Entry', export : 'Export Week'}">
+          <div id="highchart_place"></div>
         </div>
       </section>
+      <div class="col-md-4">
+        <section class="today">
+          <div>
+            <header>March 10th</header>
+            <span class="date-day">3:00<sup>pm</sup></span>
+          </div>
+          <ul class="roles">
+            <li class="bell active">Bell</li>
+            <li class="door">Door</li>
+            <li class="valet active">Valet</li>
+          </ul>
+        </section>
 
-      <h4 class="divider">Full Schedule for week of Match 10th</h4>
-      <section class="full_week">
+        <div sc-panel title="Scheduling">
+          <ul class="list list-unstyled">
+            <li><a href="#">Manage Availability</a></li>
+          </ul>
+        </div>
 
-      </section>
+        <div sc-panel title="Requests">
+          <ul class="list list-unstyled">
+            <li><a href="#">Create new Request</a></li>
+            <li><a href="#">View My Requests</a></li>
+            <li><a href="#">Post to Corkboard</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
+    <h4 class="divider">Week at a glance</h4>
+    <section class="week">
+      <div>
+        <span>10</span>
+      </div>
+      <div>
+        <span>11</span>
+      </div>
+      <div>
+        <span>12</span>
+      </div>
+      <div>
+        <span>13</span>
+      </div>  
+      <div>
+        <span>14</span>
+      </div>
+      <div>
+        <span>15</span>
+      </div>
+      <div>
+        <span>16</span>
+      </div>
+    </section>
+
+    <h4 class="divider">Full Schedule for week of March 10th</h4>
+    <section class="full_week">
+    </section>
+      
   </section>
-  <div class="row" id="overview">
-
-    <!-- Highchart tip tracker -->
-    <section class="col-md-8">
-      <div sc-panel title="Tip Tracker" buttons="{plus : 'Add Entry', pencil : 'Edit Entry', export : 'Export Week'}">
-        <div id="highchart_place"></div>
-      </div>
-    </section>
-    <section class="col-md-4">
-
-      <!-- Scheduling Panel -->
-      <div sc-panel title="Scheduling">
-        <ul class="list list-unstyled">
-          <li><a href="#">Manage Availability</a></li>
-        </ul>
-      </div>
-
-      <!-- Requests Panel -->
-      <div sc-panel title="Requests">
-        <ul class="list list-unstyled">
-          <li><a href="#">Create new Request</a></li>
-          <li><a href="#">View My Requests</a></li>
-          <li><a href="#">Post to Corkboard</a></li>
-        </ul>
-      </div>
-
-    </section>
-  </div>
 </div>

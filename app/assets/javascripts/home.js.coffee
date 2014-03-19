@@ -36,3 +36,14 @@ $(document).ready ->
       }
     ]
   $('#highchart_place').highcharts(hc)
+
+  # Role tooltips
+  $('ul.roles li').each((index, element)->
+    e = $(element)
+    if e.hasClass('active')
+      e.tooltip({
+        title: e.text(),
+        placement: 'left',
+        container: 'body'
+      })
+  )
