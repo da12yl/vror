@@ -1,0 +1,51 @@
+.schedule {
+  overflow:hidden;
+  .schedule-ctn {
+    padding:.5em;
+  }
+  .today {
+    border:1px solid #ccc;
+    padding:1em 1em .5em;
+    margin:0 auto 1em;
+    text-align:center;
+    header {
+      font-size:1.25em;
+    }
+    .date-day {
+      font-size:5em;
+      sup {font-size:25%;position:relative;top:-2.25em}
+    }
+  }
+  .week, .week>div {
+    border:1px solid #ccc;
+    height:130px;
+  }
+  .week {
+    display:table;
+    table-layout:fixed;
+    border-collapse:collapse;
+    width:100%;
+    margin:5px;
+    >div {
+      position:relative;
+      display:table-cell;
+      border:1px solid #aaa;
+      span {
+        position:absolute;
+        left:3px;top:3px;
+      }
+    }
+  }
+  .time {
+    border:1px solid red;
+  }
+  .divider {
+    color:#555;
+    margin:2em 0 .5em;
+  }
+  .full_week {
+    width:auto;
+    height:350px;
+    background:#eef
+  }
+}

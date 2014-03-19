@@ -1,0 +1,45 @@
+<h3>Edit User Details</h3>
+<section class="form-group-inline">
+  <div class="reg-form">
+    <h4>Personal Information</h4>
+    <section class="form-group">
+      <%= form_for(:user, url: edit_user_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="input-group">
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.label :name %>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: "form-control" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.label :hiredate %>
+              <%= f.date_field :hiredate, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="row">
+            <div class="col-md-5">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+            </div>
+            <div class="col-md-5">
+              <%= f.label :password %>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div><%= f.submit "Update", class: "btn btn-default" %></div>
+      <% end %>
+    </section>
+  </div>
+  <div class="reg-form">
+    <h4>Schedule</h4>
+  </div>
+</div>

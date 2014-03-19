@@ -1,6 +1,6 @@
 <div class="dashboard" class="row">
   <header>
-    <h3>Schedulr Dashboard</h3>
+    <h3><%= current_user.first_name %>&apos;s Dashboard</h3>
   </header>
   <section class="schedule">
     <div class="schedule-ctn">
@@ -44,8 +44,9 @@
 
     <!-- Highchart tip tracker -->
     <section class="col-md-8">
-      <div sc-panel title="Tip Tracker" buttons="{plus : 'Add', pencil : 'Add Entry', export : 'Export Week'}"></div>
-
+      <div sc-panel title="Tip Tracker" buttons="{plus : 'Add Entry', pencil : 'Edit Entry', export : 'Export Week'}">
+        <div id="highchart_place"></div>
+      </div>
     </section>
     <section class="col-md-4">
 
