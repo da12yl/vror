@@ -17,3 +17,13 @@
 //= require ./angular/scheduler
 //= require_tree ./angular
 //= require_tree .
+
+/* Datepicker HTML5 Input element default */
+Date.prototype.inputTodayValue = (function(){
+  var local = new Date(this);
+  local.setMinutes(this.getMinutes() - this.getTimezoneOffset())
+  return local.toJSON().slice(0, 10)
+})
+$(document).ready(function(){
+  $('input[type=date]').val(new Date().inputTodayValue())
+})

@@ -20,7 +20,9 @@ Scheduler::Application.routes.draw do
   #
   # Default resources
   #
-  resources :users
+  resources :users do
+    resources :tips
+  end
   resources :tips, only: [:index, :values]
 
   get 'tipentries' => 'tips#values'
