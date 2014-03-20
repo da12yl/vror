@@ -5,9 +5,7 @@
   <section class="schedule">
     <div class="schedule-ctn row">
       <section class="col-md-8">
-        <div sc-panel title="Tip Tracker" buttons="{plus : 'Add Entry', pencil : 'Edit Entry', export : 'Export Week'}">
-          <div id="highchart_place"></div>
-        </div>
+          <%= render :template => "tips/panels/highchart_panel" %>
       </section>
       <div class="col-md-4">
         <section class="today">
@@ -21,20 +19,7 @@
             <li class="valet active">Valet</li>
           </ul>
         </section>
-
-        <div sc-panel title="Scheduling">
-          <ul class="list list-unstyled">
-            <li><a href="#">Manage Availability</a></li>
-          </ul>
-        </div>
-
-        <div sc-panel title="Requests">
-          <ul class="list list-unstyled">
-            <li><a href="#">Create new Request</a></li>
-            <li><a href="#">View My Requests</a></li>
-            <li><a href="#">Post to Corkboard</a></li>
-          </ul>
-        </div>
+        <%= render :template => 'home/manage_panels' %>
       </div>
     </div>
 
@@ -64,8 +49,7 @@
     </section>
 
     <h4 class="divider">Full Schedule for week of March 10th</h4>
-    <section class="full_week">
-    </section>
+    <section class="full_week"></section>
       
   </section>
 </div>

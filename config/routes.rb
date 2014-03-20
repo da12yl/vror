@@ -17,6 +17,10 @@ Scheduler::Application.routes.draw do
     delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  namespace :api do
+    get 'tips/:time' => 'tips#tip_data'
+    get 'profits/:time' => 'tips#total_profit'
+  end
   #
   # Default resources
   #
