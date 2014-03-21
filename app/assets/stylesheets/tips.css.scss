@@ -1,0 +1,41 @@
+// Place all the styles related to the tip controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.tiptracker {
+  /* Spaces out main header on tiptracker page */
+  >header {
+    margin:1.5em 0;
+    div {
+      font-size:70%;
+      margin-top:1em;
+    }
+  }
+}
+.tip-actions {
+  form {
+    display:table;
+    width:100%;
+    >div {
+      display:table-cell;
+    }
+    .fields {
+      width:85%;
+      input, button { display:inline-block; }
+      input[type=text] {width:80px}
+      input[type=date] {width:170px}
+      button {width:auto}
+    }
+    .btn-group-sm {
+      text-align:right;
+      position:relative;
+      z-index:1000;
+      width:25%;
+    }
+    .dropdown-menu {
+      right:0;
+      li {
+        text-align:right;
+      }
+    }
+  }
+}

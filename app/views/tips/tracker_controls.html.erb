@@ -1,0 +1,24 @@
+<div class="tip-actions">
+  <!-- Add -->
+  <%= form_for([@user, @tip]) do |f| %>
+    <div class="fields">
+      <%= f.date_field :day, class: "form-control" %>
+      <%= f.text_field :amount, class: "form-control", placeholder: "Amount", maxlength: "3" %>
+      <%= f.button class: "btn btn-default btn-success btn-sm" do %>
+        <span class="glyphicon glyphicon-plus"></span> Add Tip Record
+      <% end %>
+    </div>
+    <div class="btn-group-sm">
+      <button type="button" class="btn btn-default btn-info dropdown-toggle" data-toggle="dropdown">
+        Export <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Week</a></li>
+        <li><a href="#">Month</a></li>
+        <li><a href="#">Year</a></li>
+        <li><a href="#">All Time</a></li>
+      </ul>
+    </div>
+  <% end %>
+</div>

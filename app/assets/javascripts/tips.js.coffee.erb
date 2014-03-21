@@ -1,0 +1,56 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org
+
+$(document).on('click', '[data-action=save]', (e)->
+  $('#addTipForm').submit()
+  return
+)
+$(document).on('click', '[data-hc-view]', (e)->
+  e.preventDefault();
+  getChartData($(e.target).attr('data-hc-view'))
+  false
+)
+$(document).ready ->
+  getChartData('month')
+  return
+
+getChartData = (time)->
+  $.get('/api/tips/' + time)
+    .success (data)->
+      now = new Date()
+
+      # parse json memebers to int
+      ints = (parseInt(amount) for amount in data.amounts)
+
+      max = 0
+      for amount in data
+        if data[amount] > max
+          max = data[amount]
+        max += 30
+        max
+      hc =
+        chart:
+          renderTo: 'highchart_place'
+          type: 'line'
+        legend:
+          false
+        title:
+          text: false
+        xAxis:
+          type: 'datetime'
+        yAxis:
+          min: 0
+          max: data.max
+          title:
+            text: "Cash"
+        series: [
+          {
+            name: "Steve"
+            data: ints,
+            pointStart: Date.UTC(2014, 2, 10),
+            pointInterval: 24 * 3600 * 1000
+          }
+        ]
+      $('#highchart_place').highcharts hc 
+      return

@@ -1,0 +1,33 @@
+<div class="col-md-3">
+  <section class="panel panel-default">
+    <header class="panel-heading">This Week</header>
+    <section class="panel-body">
+      <span class="text-large">
+        <%= number_to_currency(@totals[:week], precision: 0) %>
+      </span>
+    </section>
+  </section>
+</div>
+<div class="col-md-3">
+  <section class="panel panel-default">
+    <header class="panel-heading">This Month</header>
+    <section class="panel-body">
+      <span class="text-large"><%= number_to_currency(@totals[:month], precision: 0) %></span>
+    </section>
+  </section>
+</div>
+<div class="col-md-3">
+  <section class="panel panel-default">
+    <header class="panel-heading">Year to Date</header>
+    <section class="panel-body">
+      <span class="text-large"><%= number_to_currency(@totals[:year], precision: 0) %></span>
+    </section>
+  </section>
+</div>
+<div class="col-md-3">
+  <section class="panel panel-default">
+    <header class="panel-heading">All Time</header>
+    <section class="panel-body">
+      <span class="text-large"><%= number_to_currency(@totals[:all], precision: 0) %></span>
+    </section>
+  </section>

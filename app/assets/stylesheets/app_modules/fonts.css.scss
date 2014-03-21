@@ -1,0 +1,14 @@
+.text-large, .text-huge {
+  display:block;
+  text-align:center;
+  sup {
+    font-size:30%;
+    position:relative;
+  }
+}
+.text-large { 
+  font-size:3em; 
+}
+.text-huge { 
+  font-size:4.25em; 
+}
