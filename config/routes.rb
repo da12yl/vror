@@ -17,10 +17,6 @@ Scheduler::Application.routes.draw do
     delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  namespace :api do
-    get 'tips/:time' => 'tips#tip_data'
-    get 'profits/:time' => 'tips#total_profit'
-  end
   #
   # Default resources
   #
@@ -28,8 +24,7 @@ Scheduler::Application.routes.draw do
     resources :tips
   end
   resources :tips, only: [:index, :values]
-
-  get 'tipentries' => 'tips#values'
+  resources :schedule
 
   # 
   # Admin Namespace
@@ -45,5 +40,13 @@ Scheduler::Application.routes.draw do
 
     # admin/users
     resources :users
+  end
+
+  #
+  # => API namespace for tip JSON data
+  #
+  namespace :api do
+    get 'tips/:time' => 'tips#tip_data'
+    get 'profits/:time' => 'tips#total_profit'
   end
 end 

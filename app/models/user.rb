@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :tips
-  accepts_nested_attributes_for :tips
+  has_one :available
+
+  accepts_nested_attributes_for :tips, :available
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :trackable, :validatable, :registerable

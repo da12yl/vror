@@ -39,6 +39,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'debugger'
+  gem 'quiet_assets'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
