@@ -4,7 +4,6 @@ class Api::TipsController < TipsController
   #
   # => Tips for the week
   #
-
   def tip_data(output=true)
     time = params[:time]
     if time == 'week'
@@ -37,7 +36,7 @@ class Api::TipsController < TipsController
   # => Renders out the total made from each timeframe
   # => {"total" : "#"}
   #
-  def output_profit_data(record_array)
+  def output_total_data(record_array)
     result = {total: 0}
     record_array.each do |record|
       record.hash.extract!(:amount).each do |key, amount|

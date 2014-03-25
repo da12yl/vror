@@ -13,6 +13,19 @@
 
 ActiveRecord::Schema.define(version: 20140319023951) do
 
+  create_table "base_schedules", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "day_blocks", force: true do |t|
+    t.integer "base_schedule_id"
+    t.integer "day_index"
+    t.time    "from"
+    t.time    "to"
+  end
+
   create_table "tips", force: true do |t|
     t.date     "day"
     t.decimal  "amount"
@@ -22,22 +35,22 @@ ActiveRecord::Schema.define(version: 20140319023951) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "name"
+    t.date     "hiredate"
+    t.string   "phone"
+    t.boolean  "admin",                  default: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.date     "hiredate"
-    t.string   "phone"
-    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

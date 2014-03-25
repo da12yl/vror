@@ -38,6 +38,9 @@ class Admin::UsersController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:sign_up) << [:name, :hiredate, :phone]
     #logger.debug "config params: " << devise_parameter_sanitizer.for(:sign_up).flatten.to_s
   end
+  def authenticate_user!
+    super && current_user.admin == 1
+  end
 
   private :config_params
   protected :sign_up, :after_sign_up_path_for

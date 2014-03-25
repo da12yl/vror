@@ -3,11 +3,11 @@
   <div class="navbar-inner">
     <a href="/" class="navbar-brand">Schedulr</a>
     <ul class="nav navbar-nav">
-      <% if current_user.try(:admin?) %>
+      <% if current_user.admin? %>
       <li class="dropdown admin">
         <a class="dropdown-toggle" data-toggle="dropdown">Employees <strong class="caret"></strong></a>
         <ul class="dropdown-menu">
-          <li><%= link_to "All Employees", users_path %></li>
+          <li><%= link_to "All Employees", admin_users_path %></li>
           <li><a>Schedule Templates</a></li>
           <li><a>Edit Details</a></li>
           <li class="divider"></li>
@@ -23,7 +23,7 @@
           <li><a>All Schedules</a></li>
         </ul>
       </li>
-      <li><%= link_to "TipTracker", tips_path %>
+      <li><%= link_to "TipTracker", user_tips_path %>
       <li><a>Requests</a></li>
       <li><a>Messages</a></li>
       <li class="admin"><a>Site Activity</a></li>

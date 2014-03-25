@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require vendor/highcharts
 //= require vendor/bootstrap.min
 //= require vendor/angular

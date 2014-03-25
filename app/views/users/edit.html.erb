@@ -1,1 +1,8 @@
-<%= render 'form' %>
+<%= debug @user %>
+<%= debug @user.base_schedule.day_block %>
+<div>
+  <%= render :partial => 'users/forms/base_schedule_form' %>
+</div>
+<div>
+  <%= render :partial => 'users/forms/edit_user_details_form' %>
+</div>

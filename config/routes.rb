@@ -15,17 +15,8 @@ Scheduler::Application.routes.draw do
     get    'login' => 'devise/sessions#new', as: :new_user_session
     post   'login' => 'devise/sessions#create', as: :user_session
     delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
+    resource :schedule, only: [:show, :update, :edit]
   end
-
-  #
-  # Default resources
-  #
-  resources :users do
-    resources :tips
-  end
-  resources :tips, only: [:index, :values]
-  resources :schedule
-
   # 
   # Admin Namespace
   #
@@ -40,6 +31,7 @@ Scheduler::Application.routes.draw do
 
     # admin/users
     resources :users
+    resources :schedule
   end
 
   #
@@ -47,6 +39,14 @@ Scheduler::Application.routes.draw do
   #
   namespace :api do
     get 'tips/:time' => 'tips#tip_data'
-    get 'profits/:time' => 'tips#total_profit'
+    get 'totals/:time' => 'tips#total_data'
+  end
+
+  # Default resources
+  # Must be down at the bottom of routes.rb to make sure it's the last 
+  # possible resolved route due to it's empty path.
+  resource :user, only: [:update, :edit, :show], path: '' do
+    get '/' => "home#index"
+    resources :tips, except: [:update, :destroy]
   end
 end 

@@ -1,6 +1,10 @@
 <div class="dashboard" class="row">
   <header>
     <h3><%= current_user.first_name %>&apos;s Dashboard</h3>
+    <% if flash[:warning] %>
+      <div><%= flash[:warning] %></div>
+    <% end %>
+
   </header>
   <section class="schedule">
     <div class="schedule-ctn row">

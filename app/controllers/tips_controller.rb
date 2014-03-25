@@ -1,4 +1,5 @@
 class TipsController < ApplicationController
+  before_filter :check_user_validity
   include TipHelper
 
   def index
@@ -14,7 +15,7 @@ class TipsController < ApplicationController
   end
 
   def create 
-    @user = User.first
+    @user = User.find(current_user.id)
     @tip = @user.tips.build(tip_params)
 
     if @tip.save!
@@ -56,8 +57,17 @@ class TipsController < ApplicationController
     end
 
     array.each do |tip|
-      amount += tip[:amount]
+      amount += tip[:amount] unless 0
     end
     amount
+  end
+  #
+  # => Checks to make sure there was no tampering of the URL's user-id param
+  #
+  def check_user_validity
+    if params[:user_id] != current_user
+      #flash[:warning] = "Don't mess with things. Yours: #{current_user.slug}, Input: #{params[:user_id]}"
+      #redirect_to root_url
+    end
   end
 end

@@ -3,7 +3,7 @@
   <%= form_for([@user, @tip]) do |f| %>
     <div class="fields">
       <%= f.date_field :day, class: "form-control" %>
-      <%= f.text_field :amount, class: "form-control", placeholder: "Amount", maxlength: "3" %>
+      <%= f.text_field :amount, class: "form-control", placeholder: "Amount", maxlength: "3", required: true %>
       <%= f.button class: "btn btn-default btn-success btn-sm" do %>
         <span class="glyphicon glyphicon-plus"></span> Add Tip Record
       <% end %>
