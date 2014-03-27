@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def edit_profile
-
+    
   end
   def update_profile
 

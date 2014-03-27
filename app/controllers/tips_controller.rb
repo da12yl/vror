@@ -1,5 +1,4 @@
 class TipsController < ApplicationController
-  before_filter :check_user_validity
   include TipHelper
 
   def index
@@ -20,7 +19,7 @@ class TipsController < ApplicationController
 
     if @tip.save!
       flash[:notice] = "Successfully recorded tip on #{@tip.day} for #{@tip.amount}"
-      redirect_to tips_url
+      redirect_to user_tips_url
     end
   end
   #
@@ -43,6 +42,7 @@ class TipsController < ApplicationController
   def tip_params
     params.require(:tip).permit(:amount, :day)
   end
+
   def total_for(time=:all)
     amount = 0
     array = nil
@@ -55,19 +55,8 @@ class TipsController < ApplicationController
     else
       array = Tip.all
     end
-
-    array.each do |tip|
-      amount += tip[:amount] unless 0
-    end
+    
+    array.each {|t| amount += t[:amount]}
     amount
-  end
-  #
-  # => Checks to make sure there was no tampering of the URL's user-id param
-  #
-  def check_user_validity
-    if params[:user_id] != current_user
-      #flash[:warning] = "Don't mess with things. Yours: #{current_user.slug}, Input: #{params[:user_id]}"
-      #redirect_to root_url
-    end
   end
 end

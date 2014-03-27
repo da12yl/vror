@@ -18,14 +18,14 @@ class Api::TipsController < TipsController
   #
   # => Method to get total made of each time frame
   #
-  def total_profit
+  def total_data
     time = params[:time]
     if time == 'week'
-      output_profit_data tips_from_this_week
+      output_total_data tips_from_this_week
     elsif time == 'month'
-      output_profit_data tips_from_this_month
+      output_total_data tips_from_this_month
     else
-      output_profit_data Tip.all
+      output_total_data Tip.all
     end  
   end
 
