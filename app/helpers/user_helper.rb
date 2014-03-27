@@ -9,6 +9,7 @@ module UserHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
   def build_user_deps
+    base_schedule = current_user.build_base_schedule
     #7.times {base_schedule.day_block.new}
 
     current_user

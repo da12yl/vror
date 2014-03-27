@@ -1,0 +1,11 @@
+<h4>Edit Availability</h4>
+<div class="manage availability">
+  <%= form_for(@user, :url => edit_user_path, method: :patch) do |f| %>
+    <%= fields_for :base_schedule do |bs| %>
+      <%= bs.fields_for :day_block, @user.base_schedule do |day| %>
+        <%= day.label :day_index %>
+      <% end %>
+    <% end %>
+    <%= f.submit %>
+  <% end %>
+</div>
