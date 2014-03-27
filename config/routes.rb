@@ -1,22 +1,8 @@
 Scheduler::Application.routes.draw do
   root to: "home#index"
 
-  devise_for :users, :controllers => { :registrations => "admin/users" }, 
-  
-              # Define our own links, skip devise generated routes
-              :skip => [:registrations, :sessions]
-
-  
-  as :user do
-    # Don't allow access to the sign_up link
-    match 'users/sign_up', to: redirect('/'), via: [:get, :post]
-
-    # remove User:: scope from login links
-    get    'login' => 'devise/sessions#new', as: :new_user_session
-    post   'login' => 'devise/sessions#create', as: :user_session
-    delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
-    resource :schedule, only: [:show, :update, :edit]
-  end
+  ###############################
+  ##########   APIs   ###########
   # 
   # Admin Namespace
   #
@@ -41,12 +27,43 @@ Scheduler::Application.routes.draw do
     get 'tips/:time' => 'tips#tip_data'
     get 'totals/:time' => 'tips#total_data'
   end
+  #########   /APIs   ###########
+  ###############################
+  
+
+  devise_for :users, :controllers => { :registrations => "admin/users" }, 
+  
+              # Define our own links, skip devise generated routes
+              :skip => [:registrations, :sessions]
+  as :user do 
+    # Don't allow access to the sign_up link
+    match 'users/sign_up', to: redirect('/'), via: [:get, :post]
+
+    # remove User:: scope from login links
+    get    'login' => 'devise/sessions#new', as: :new_user_session
+    post   'login' => 'devise/sessions#create', as: :user_session
+    delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
+  end
 
   # Default resources
   # Must be down at the bottom of routes.rb to make sure it's the last 
   # possible resolved route due to it's empty path.
-  resource :user, only: [:update, :edit, :show], path: '' do
+  resource :user, except: [:new, :create], path: '' do 
     get '/' => "home#index"
-    resources :tips, except: [:update, :destroy]
+    match '/edit' => "users#update", via: [:put, :patch]
+
+    # Sub namespace for editing/updating availability and profile information
+    scope 'manage' do 
+      # GET - renders forms
+      get 'availability' => 'users#edit_availability'
+      get 'profile' => 'users#edit_profile'
+
+      # PUT/PATCH - performs update logic
+      match 'availability' => 'users#update_availability', via: [:put, :patch]
+      match 'profile' => 'users#update_profile', via: [:put, :patch]
+    end
+
+    resources :tips, except: [:update, :destroy_user_session]
+    resource :schedule, only: [:show, :update, :edit]
   end
 end 

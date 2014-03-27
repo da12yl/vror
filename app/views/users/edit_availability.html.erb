@@ -1,0 +1,18 @@
+<h4>Edit Availability</h4>
+<% if flash.any? %>
+<div class="well text-success"><%= flash[:notice] %></div>
+<% end %>
+<div class="manage availability">
+  <%= form_for(@schedule, url: availability_user_path, method: :put) do |user| %>
+    <%= user.fields_for :day_blocks, index = 0 do |d| %>
+      <div>
+        <%= d.label day_from_index(index) %><br />
+        <%= d.text_field :from%> 
+        <%= d.text_field :to  %>
+        <%= d.hidden_field :day_index, :value => index %>
+      </div>
+      <% index += 1 %>
+    <% end %>
+    <%= user.submit %>
+  <% end %>
+</div>
