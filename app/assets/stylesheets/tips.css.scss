@@ -19,23 +19,16 @@
       display:table-cell;
     }
     .fields {
-      width:85%;
+      width:90%;
       input, button { display:inline-block; }
       input[type=text] {width:80px}
       input[type=date] {width:170px}
       button {width:auto}
     }
     .btn-group-sm {
-      text-align:right;
       position:relative;
       z-index:1000;
-      width:25%;
-    }
-    .dropdown-menu {
-      right:0;
-      li {
-        text-align:right;
-      }
+      width:20%;
     }
   }
 }

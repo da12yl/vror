@@ -22,6 +22,10 @@ class TipsController < ApplicationController
       redirect_to user_tips_url
     end
   end
+
+  def export
+    
+  end
   #
   # => Helper methods for getting tips from a time beginning
   # Month

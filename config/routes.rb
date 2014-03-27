@@ -63,7 +63,11 @@ Scheduler::Application.routes.draw do
       match 'profile' => 'users#update_profile', via: [:put, :patch]
     end
 
-    resources :tips, except: [:update, :destroy_user_session]
+    # No need for resourceS for tips
+    resource :tips, except: [:update, :destroy, :show] do 
+      get '/' => 'tips#index'
+      get 'export/:time' => 'tips#export', as: 'export'
+    end
     resource :schedule, only: [:show, :update, :edit]
   end
 end 

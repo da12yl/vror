@@ -14,10 +14,12 @@
       </button>
 
       <ul class="dropdown-menu" role="menu">
-        <li><a href="#">Week</a></li>
-        <li><a href="#">Month</a></li>
-        <li><a href="#">Year</a></li>
-        <li><a href="#">All Time</a></li>
+        <li><%= link_to "Week", export_user_tips_path('week') %></li>
+        <li><%= link_to "Month", export_user_tips_path('month') %></li>
+        <li><%= link_to "Year", export_user_tips_path('year') %></li>
+        <li><%= link_to "All", export_user_tips_path('all') %></li>
+        <li class="divider"></li>
+        <li><a href="#">Export for Tip Report</a></li>
       </ul>
     </div>
   <% end %>
