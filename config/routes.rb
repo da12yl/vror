@@ -17,7 +17,7 @@ Scheduler::Application.routes.draw do
 
     # admin/users
     resources :users
-    resources :schedule
+    resources :schedules
   end
 
   #

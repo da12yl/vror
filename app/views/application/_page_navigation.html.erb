@@ -18,9 +18,12 @@
       <li class="dropdown admin">
         <a class="dropdown-toggle" data-toggle="dropdown">Schedules <strong class="caret"></strong></a>
         <ul class="dropdown-menu">
-          <li><a>Create New</a></li>
-          <li><a>Edit Current</a></li>
-          <li><a>All Schedules</a></li>
+          <li><%= link_to "Schedules Dashboard", admin_schedules_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Create New", new_admin_schedule_path %></li>
+          <% unless @get_latest.nil? %>
+            <li><a>Edit Current</a></li>
+          <% end %>
         </ul>
       </li>
       <li><%= link_to "TipTracker", user_tips_path %>
@@ -50,7 +53,7 @@
             -->
           </div>
         </li>
-        <li id="gravatar"><%= image_tag gravatar_url(current_user), :data =>{:toggle => "tooltip"} %></li>
+        <li id="gravatar"><%= image_tag gravatar_url(current_user) %></li>
       </ul>
     </div>
   </div>

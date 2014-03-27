@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327181741) do
+ActiveRecord::Schema.define(version: 20140327221119) do
 
   create_table "base_schedules", force: true do |t|
     t.integer  "user_id"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20140327181741) do
     t.integer "day_index"
     t.string  "from"
     t.string  "to"
+  end
+
+  create_table "schedules", force: true do |t|
+    t.date     "week_of"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tips", force: true do |t|
